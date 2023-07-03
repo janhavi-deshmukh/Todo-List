@@ -6,12 +6,18 @@
     
     <div class="box">
 
-         <% for(var i=0;i<newItems.length;i++){ %>
+        <% newItems.forEach(function(item) { %>
+
+            <form action="/delete" method="post" id="deleteform">
             <div class="item">
-                <input type="checkbox">
-                <p><%=newItems[i]%></p>
+                <input type="checkbox" name="deleteItem" value="<%=item._id%>" id="check" onChange="this.form.submit()">
+            <li><%= item.name %></li> 
             </div>
-         <% } %>
+            <input type="hidden" name="listName" value="<%=ListTitle%>"></input>
+            </form>
+          <% }); %>
+
+      
                
 
          <form action="/" method="post" class="item">
@@ -20,5 +26,13 @@
         </form> 
 
     </div>
+
+    // <script>
+    //     document.getElementById('check').addEventListener('change', function() {
+    //       if (this.checked) {
+    //         document.getElementById('deleteform').submit();
+    //       }
+    //     });
+    //   </script>
     
 <%- include("footer") -%>
