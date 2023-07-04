@@ -6,7 +6,7 @@ const _ =require("lodash");
 const app=express();
 
 const mongoose=require("mongoose");
-mongoose.connect("mongodb://127.0.0.1:27017/todolistDB")
+mongoose.connect("mongodb+srv://admin-janhavi:test%40123@cluster0.1nutoya.mongodb.net/todolistDB")
 
 const currentDate = new Date();
 const month = currentDate.toLocaleString('default', { month: 'long' });
